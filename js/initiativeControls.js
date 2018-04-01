@@ -7,9 +7,12 @@ var battleQueue = new Queue(
     new Character("Draimund",23,20) 
     );
 
-document.getElementById("add-character").addEventListener('click', addCharacter(battleQueue));
-document.getElementById("next-character").addEventListener('click', nextCharacter(battleQueue));
-document.getElementById("sort-character").addEventListener('click', sortCharacter(battleQueue));
+document.getElementById("add-character").addEventListener('click', addCharacter);
+document.getElementById("next-character").addEventListener('click', nextCharacter);
+document.getElementById("previous-character").addEventListener('click', previousCharacter);
+document.getElementById("sort-character").addEventListener('click', sortCharacter);
+document.getElementById("init-tracker").addEventListener('click', initTracker);
+document.getElementById("stop-tracker").addEventListener('click', stopTracker);
 
 function printCharacters(queue){
     var divQueue = document.getElementById("characters-queue");
@@ -33,6 +36,22 @@ function sortCharacter(queue){
     queue.sorti();
     printCharacters(queue);
 }
+function initTracker(){
+    document.getElementById("add-character").setAttribute("class","disabled btn");
+    document.getElementById("sort-character").setAttribute("class","disabled btn");
+    document.getElementById("init-tracker").setAttribute("class","disabled btn");
+    document.getElementById("stop-tracker").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+    document.getElementById("next-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+    document.getElementById("previous-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+}
+function stopTracker(){
+    document.getElementById("add-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+    document.getElementById("sort-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+    document.getElementById("stop-tracker").setAttribute("class","disabled btn");
+    document.getElementById("init-tracker").setAttribute("class","waves-effect waves-light pink accent-1 btn");
+    document.getElementById("next-character").setAttribute("class","disabled btn" );
+    document.getElementById("previous-character").setAttribute("class","disabled btn" );
+}
 
 function nextCharacter(queue){
     var current = document.getElementById("current-character");
@@ -44,11 +63,23 @@ function nextCharacter(queue){
         printCharacters(queue);
     }
 }
+function previousCharacter(queue){
+    var current = document.getElementById("current-character");
+    current.innerHTML="";
+    if(!queue.isEmpty()){
+        var erased = queue.dequeueFinal();
+        queue.enqueueFront(erased);
+        current.appendChild(erased.node);
+        printCharacters(queue);
+    }
+}
 
 function init(queue){
     document.getElementById("add-character").addEventListener('click', addCharacter.bind(null, queue));
     document.getElementById("next-character").addEventListener('click', nextCharacter.bind(null, queue));
+    document.getElementById("previous-character").addEventListener('click', previousCharacter.bind(null, queue));
     document.getElementById("sort-character").addEventListener('click', sortCharacter.bind(null, queue));
+    printCharacters(queue)
 }
 
 init(battleQueue);

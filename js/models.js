@@ -6,9 +6,16 @@ class Queue {
     enqueue(element){
         this.dataStore.push(element);
     }
+    enqueueFront(element){
+        this.dataStore.unshift(element);
+    }
 
     dequeue(){
         return this.dataStore.shift();
+    }
+
+    dequeueFinal(){
+        return this.dataStore.pop();
     }
 
     isEmpty(){
