@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Initiative Counter</title>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div class="row">
+        <!-- Header -->
+
+        <div class="row indigo">
+            <div class="section indigo darken-2"></div>
+            <div class="section">
+                <h3 class="center-align white-text">Drogas c:</h3>
+                <p class="center-align white-text">no se C:</p>
+            </div>
+        </div>
+        
+        <!-- Body -->
+        <div class="col s12">
+            <div class="card col s7">
+                <span class="card-title">Initiative Tracker</span>
+                <div class="card-content row">
+                    <div class="col s10">
+                        <div class="collection">
+                            <div class="collection-item active" id="current-character">
+
+                            </div>
+                            <div class="collection-item" id="characters-queue">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s2">
+                            <a class="waves-effect waves-light pink accent-1 btn" 
+                            id="next-character">Next</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col s.5">
+
+            </div>
+            <div class="card col s4">
+                <div class="card-content">
+                    <div class="input-field col s4">
+                        <input type="text" id="character-name"/>
+                        <label for="character-name">Character Name</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input type="text" id="character-initiative" max="30"/>
+                        <label for="character-initiative">Initiative</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input type="text" id="character-hp" max="300"/>
+                        <label for="character-hp">HP</label>
+                    </div>
+                
+                    <a class="waves-effect waves-light pink accent-1 btn" 
+                    id="add-character">Add</a>
+                    <a class="waves-effect waves-light pink accent-1 btn" 
+                    id="sort-character">Sort</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m2 l2"></div>
+
+        <div class="col s12 m2 l2"></div>
+    </div>
+
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.js"></script>
+<script type="text/javascript" src="js/models.js"></script>
+<script type="text/javascript" src="js/initiativeControls.js"></script>
+</body>
+</html> 
