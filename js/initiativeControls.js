@@ -9,7 +9,7 @@ var battleQueue = new Queue(
 
 document.getElementById("add-character").addEventListener('click', addCharacter);
 document.getElementById("next-character").addEventListener('click', nextCharacter);
-document.getElementById("previous-character").addEventListener('click', previousCharacter);
+document.getElementById("delete-character").addEventListener('click', deleteCharacter);
 document.getElementById("sort-character").addEventListener('click', sortCharacter);
 document.getElementById("init-tracker").addEventListener('click', initTracker);
 document.getElementById("stop-tracker").addEventListener('click', stopTracker);
@@ -21,14 +21,7 @@ function printCharacters(queue){
 }
 
 function addCharacter(queue){
-    var nameInput = document.getElementById("character-name");
-    var initiative = document.getElementById("character-initiative");
-    var hp = document.getElementById("character-hp");
-    if(nameInput.value.length!=0) 
-        queue.enqueue(new Character(nameInput.value, initiative.value, hp.value));
-    nameInput.value = "";
-    initiative.value = "";
-    hp.value = "";
+    queue.enqueue(new Character("", 0, 0));
     printCharacters(queue);
 }
 
@@ -42,7 +35,6 @@ function initTracker(){
     document.getElementById("init-tracker").setAttribute("class","disabled btn");
     document.getElementById("stop-tracker").setAttribute("class","waves-effect waves-light pink accent-1 btn");
     document.getElementById("next-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
-    document.getElementById("previous-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
 }
 function stopTracker(){
     document.getElementById("add-character").setAttribute("class","waves-effect waves-light pink accent-1 btn");
@@ -50,7 +42,6 @@ function stopTracker(){
     document.getElementById("stop-tracker").setAttribute("class","disabled btn");
     document.getElementById("init-tracker").setAttribute("class","waves-effect waves-light pink accent-1 btn");
     document.getElementById("next-character").setAttribute("class","disabled btn" );
-    document.getElementById("previous-character").setAttribute("class","disabled btn" );
 }
 
 function nextCharacter(queue){
@@ -60,12 +51,9 @@ function nextCharacter(queue){
         printCharacters(queue);
     }
 }
-function previousCharacter(queue){
-    if(!queue.isEmpty()){
-        var erased = queue.dequeueFinal();
-        queue.enqueueFront(erased);
-        printCharacters(queue);
-    }
+function deleteCharacter(queue){
+    queue.dequeue();
+    printCharacters(queue);
 }
 
 function updateInitiative(item,id){
@@ -84,7 +72,7 @@ function init(queue){
 
     document.getElementById("add-character").addEventListener('click', addCharacter.bind(null, queue));
     document.getElementById("next-character").addEventListener('click', nextCharacter.bind(null, queue));
-    document.getElementById("previous-character").addEventListener('click', previousCharacter.bind(null, queue));
+    document.getElementById("delete-character").addEventListener('click', deleteCharacter.bind(null, queue));
     document.getElementById("sort-character").addEventListener('click', sortCharacter.bind(null, queue));
 
     printCharacters(queue);

@@ -62,8 +62,10 @@ class Character{
         var divInitiative = document.createElement("div");
         var inputInitiative = document.createElement("input");
         var labelInitiative = document.createElement("label");
-        inputInitiative.setAttribute("type", "text");
+        inputInitiative.setAttribute("type", "number");
         inputInitiative.setAttribute("id", this.name+"-initiative");
+        inputInitiative.setAttribute("min", "0");
+        inputInitiative.setAttribute("max", "30");
         inputInitiative.addEventListener('input', updateInitiative.bind(null, this, inputInitiative.id));
         inputInitiative.setAttribute("value", this.initiative);
         labelInitiative.setAttribute("for", this.name+"-initiative");
@@ -78,8 +80,10 @@ class Character{
         var divCurrentHp = document.createElement("div");
         var inputCurrentHp = document.createElement("input");
         var labelHp = document.createElement("label");
-        inputCurrentHp.setAttribute("type", "text");
+        inputCurrentHp.setAttribute("type", "number");
         inputCurrentHp.setAttribute("id", this.name+"-currentHp");
+        inputCurrentHp.setAttribute("min", "0");
+        inputCurrentHp.setAttribute("max", "500");
         inputCurrentHp.addEventListener('input', updateCurrentHp.bind(null, this, inputCurrentHp.id));
         inputCurrentHp.setAttribute("value", this.currentHp);
         labelHp.setAttribute("for", this.name+"-currentHp");
