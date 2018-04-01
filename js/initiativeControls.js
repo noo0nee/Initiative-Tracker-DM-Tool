@@ -54,32 +54,41 @@ function stopTracker(){
 }
 
 function nextCharacter(queue){
-    var current = document.getElementById("current-character");
-    current.innerHTML="";
     if(!queue.isEmpty()){
         var erased = queue.dequeue();
         queue.enqueue(erased);
-        current.appendChild(erased.node);
         printCharacters(queue);
     }
 }
 function previousCharacter(queue){
-    var current = document.getElementById("current-character");
-    current.innerHTML="";
     if(!queue.isEmpty()){
         var erased = queue.dequeueFinal();
         queue.enqueueFront(erased);
-        current.appendChild(erased.node);
         printCharacters(queue);
     }
 }
 
+function updateInitiative(item,id){
+    item.initiative = document.getElementById(id).value;
+}
+
+function updateName(item,id){
+    item.name = document.getElementById(id).value;
+}
+
+function updateCurrentHp(item,id){
+    item.currentHp = document.getElementById(id).value;
+}
+
 function init(queue){
+
     document.getElementById("add-character").addEventListener('click', addCharacter.bind(null, queue));
     document.getElementById("next-character").addEventListener('click', nextCharacter.bind(null, queue));
     document.getElementById("previous-character").addEventListener('click', previousCharacter.bind(null, queue));
     document.getElementById("sort-character").addEventListener('click', sortCharacter.bind(null, queue));
-    printCharacters(queue)
+
+    printCharacters(queue);
+
 }
 
 init(battleQueue);

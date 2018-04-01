@@ -23,8 +23,13 @@ class Queue {
     }
 
     print(element){
-        this.dataStore.forEach(function(item){
-            element.appendChild(item.node);});
+        this.dataStore.forEach(function(item,n,array){
+            if (n==0)
+                item.node.setAttribute("class", "collection-item deep-purple lighten-4 col s12");
+            else
+                item.node.setAttribute("class", "collection-item col s12");
+            element.appendChild(item.node);
+        });
     }
 
     sorti(){
@@ -44,7 +49,7 @@ class Character{
         var labelName = document.createElement("label");
         inputName.setAttribute("type", "text");
         inputName.setAttribute("id", this.name+"-name");
-        //inputName.setAttribute("class", "white-text");
+        inputName.addEventListener('input', updateName.bind(null, this, inputName.id));
         inputName.setAttribute("value", this.name);
         labelName.setAttribute("for", this.name+"-name");
         labelName.setAttribute("class", "active");
@@ -59,7 +64,7 @@ class Character{
         var labelInitiative = document.createElement("label");
         inputInitiative.setAttribute("type", "text");
         inputInitiative.setAttribute("id", this.name+"-initiative");
-        //inputInitiative.setAttribute("class", "white-text");
+        inputInitiative.addEventListener('input', updateInitiative.bind(null, this, inputInitiative.id));
         inputInitiative.setAttribute("value", this.initiative);
         labelInitiative.setAttribute("for", this.name+"-initiative");
         labelInitiative.setAttribute("class", "active");
@@ -68,13 +73,14 @@ class Character{
         divInitiative.appendChild(inputInitiative);
         divInitiative.appendChild(labelInitiative);
 
+
         // Div Input-HP
         var divCurrentHp = document.createElement("div");
         var inputCurrentHp = document.createElement("input");
         var labelHp = document.createElement("label");
         inputCurrentHp.setAttribute("type", "text");
         inputCurrentHp.setAttribute("id", this.name+"-currentHp");
-        //inputCurrentHp.setAttribute("class", "white-text");
+        inputCurrentHp.addEventListener('input', updateCurrentHp.bind(null, this, inputCurrentHp.id));
         inputCurrentHp.setAttribute("value", this.currentHp);
         labelHp.setAttribute("for", this.name+"-currentHp");
         labelHp.setAttribute("class", "active");
@@ -86,11 +92,11 @@ class Character{
         // Div general
         var div = document.createElement("div");
         div.setAttribute("id", "character-"+this.name);
-        div.setAttribute("class", "col s12");
+        div.setAttribute("class", "collection-item col s12");
         div.appendChild(divName);
         div.appendChild(divInitiative);
         div.appendChild(divCurrentHp);
-        
+        div.ch
         this.node =  div;
     }
 }
