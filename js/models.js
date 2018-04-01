@@ -54,7 +54,7 @@ class Character{
         labelName.setAttribute("for", this.name+"-name");
         labelName.setAttribute("class", "active");
         labelName.appendChild(document.createTextNode("Name: "));
-        divName.setAttribute("class", "input-field inline col s4 ");
+        divName.setAttribute("class", "input-field col s4 m6");
         divName.appendChild(inputName);
         divName.appendChild(labelName);
 
@@ -71,7 +71,7 @@ class Character{
         labelInitiative.setAttribute("for", this.name+"-initiative");
         labelInitiative.setAttribute("class", "active");
         labelInitiative.appendChild(document.createTextNode("Initiative: "));
-        divInitiative.setAttribute("class", "input-field inline col s2");
+        divInitiative.setAttribute("class", "input-field  col s4 m3");
         divInitiative.appendChild(inputInitiative);
         divInitiative.appendChild(labelInitiative);
 
@@ -89,7 +89,7 @@ class Character{
         labelHp.setAttribute("for", this.name+"-currentHp");
         labelHp.setAttribute("class", "active");
         labelHp.appendChild(document.createTextNode("HP: "));
-        divCurrentHp.setAttribute("class", "input-field inline col s2");
+        divCurrentHp.setAttribute("class", "input-field col s4 m3");
         divCurrentHp.appendChild(inputCurrentHp);
         divCurrentHp.appendChild(labelHp);
 
