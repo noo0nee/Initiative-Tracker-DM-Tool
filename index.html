@@ -1,65 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Isheros - Initiative Tracker</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 
 <body>
-<header class="page-header">
-    <!-- Header -->
-    <div class="row indigo z-depth-2">
-        <div class="section indigo darken-2"></div>
-        <div class="section">
-            <h4 class="center-align white-text">Utilerias</h4>
-            <p class="center-align white-text small">Initiative Tracker</p>
-        </div>
+
+<!-- Header -->
+<div class="jumbotron jumbotron-fluid purple darken-4">
+        <h1 class="text-white text-center animated fadeIn">Initiative Tracker</h1>
+</div>
+<!-- Body -->
+<!-- Tracker -->
+<div class="container card animated fadeIn">
+    <div class="card-body " id="tracker-body">
+
     </div>
-</header>
-<main>
-    <!-- Body -->
-    <!-- Tracker -->
-    <div class="container">
-        <div class="card z-depth-2">
-            <div class="card-content">
-                <span class="card-title">Initiative Tracker</span>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="col s4 m2">
-                            <a class="waves-effect waves-light pink accent-1 btn" id="add-character">Add</a></div>
-                        <div class="col s4 m2">
-                            <a class="waves-effect waves-light pink accent-1 btn" id="delete-character">Delete</a></div>
-                        <div class="col s4 m2">
-                            <a class="waves-effect waves-light pink accent-1 btn" id="sort-character">Sort</a></div>
-                        <div class="col s4 m2">
-                            <a class="disabled btn" id="next-character">Next</a></div>
-                        <div class="col s4 m2">
-                            <a class="waves-effect waves-light pink accent-1 btn" id="init-tracker">Init</a></div>
-                        <div class="col s4 m2">
-                            <a class="disabled btn" id="stop-tracker">Stop</a></div>
-                    </div>
+</div>
 
-                    <div class="col s12">
-                        <div class="collection" id="characters-queue"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<!-- JS -->
+<script type="text/javascript" src="js/functions.js"></script>
 
-</main>
-
-
-<!--JavaScript at end of body for optimized loading-->
-<script type="text/javascript" src="js/materialize.js"></script>
-<script type="text/javascript" src="js/models.js"></script>
-<script type="text/javascript" src="js/initiativeControls.js"></script>
 </body>
 </html> 

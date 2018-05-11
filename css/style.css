@@ -1,0 +1,16 @@
+/* Your custom styles */
+.tab-input{
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+    border: 0;
+    display: block;
+}
+.td-in{
+    margin: 0; 
+    padding: 0;
+    width:10%;
+}
+.td-name{
+    width:60%;
+}
